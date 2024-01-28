@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+    window.queryParams = new URLSearchParams(document.location.search);
+    window.containerIdFromQueryString = window.queryParams.get("gtm_id");
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',containerIdFromQueryString);</script>
+  </head>
+  <body>
+    <div id = 'purpose'>
+      Request any GTM container by passing the container id as the `gtm_id` query parameter value.
+    </div>
+    <div id = 'content'>
+      
+    </div>
+    <script>
+      (function() {
+        let target = document.getElementById("content");
+        if(window.containerIdFromQueryString) {
+          target.innerText = `requesting ${window.containerIdFromQueryString}`
+        } else {
+          target.innerText = "add gtm_id=GTM-CONTAINERID to the query string to test a container"
+        }
+      })();
+    </script>
+  </body>
+</html>
