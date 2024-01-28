@@ -1,6 +1,6 @@
 <!doctype html>
-<html>
-  <head>
+<html color-mode="dark">
+    <head>
     <script>
     window.queryParams = new URLSearchParams(document.location.search);
     window.containerIdFromQueryString = window.queryParams.get("gtm_id");
@@ -9,23 +9,29 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer',containerIdFromQueryString);</script>
+    <title>any-container | code demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
   </head>
   <body>
-    <div id = 'purpose'>
-      Request any GTM container by passing the container id as the `gtm_id` query parameter value.
-    </div>
-    <div id = 'content'>
-      
-    </div>
-    <script>
-      (function() {
-        let target = document.getElementById("content");
-        if(window.containerIdFromQueryString) {
-          target.innerText = `requesting ${window.containerIdFromQueryString}`
-        } else {
-          target.innerText = "add gtm_id=GTM-CONTAINERID to the query string to test a container"
-        }
-      })();
-    </script>
+    <main>
+      <header>
+        <h1>any-container</h1>
+        <h2>code demo</h2>
+      </header>
+      <div id = 'purpose'>
+        <p>Request any GTM container by passing the container id as the `gtm_id` query parameter value.</p>
+      </div>
+      <div id = 'content'></div>
+      <script>
+        (function() {
+          let target = document.getElementById("content");
+          if(window.containerIdFromQueryString) {
+            target.insertAdjacentHTML("afterbegin", `<p>requesting container</p><code>${window.containerIdFromQueryString}</code>`)
+          } else {
+            target.insertAdjacentHTML("beforeBegin", "<article><aside>Use gtm_id={GTM-CONTAINER-ID} in URL query string to get a container</aside></article>")
+          }
+        })();
+      </script>
+    </main>
   </body>
 </html>
