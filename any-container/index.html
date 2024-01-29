@@ -1,14 +1,16 @@
 <!doctype html>
 <html color-mode="user">
     <head>
-    <script>
-    window.queryParams = new URLSearchParams(document.location.search);
-    window.containerIdFromQueryString = window.queryParams.get("gtm_id");
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer',containerIdFromQueryString);</script>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+        <script>
+            window.queryParams = new URLSearchParams(document.location.search);
+            window.containerIdFromQueryString = window.queryParams.get("gtm_id");
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer',containerIdFromQueryString);
+        </script>
     <title>any-container | code demo</title>
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
   </head>
